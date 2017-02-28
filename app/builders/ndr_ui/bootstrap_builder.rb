@@ -19,9 +19,9 @@ module NdrUi
     include CssHelper
     include ::NdrUi::Bootstrap::FormControlClass
     include ::NdrUi::Bootstrap::Readonly
+    include ::NdrUi::Bootstrap::TextField
     include ::NdrUi::Bootstrap::InlineErrorsAndWarnings
     include ::NdrUi::Bootstrap::Datepicker
-    include ::NdrUi::Bootstrap::TextField
 
     attr_accessor :horizontal_mode
 

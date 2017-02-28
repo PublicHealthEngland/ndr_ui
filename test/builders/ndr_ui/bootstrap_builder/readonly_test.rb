@@ -55,6 +55,8 @@ class ReadonlyTest < ActionView::TestCase
     time = Time.current
     post = Post.new(created_at: time)
 
+    puts "mama"
+
     @output_buffer =
       bootstrap_form_for post do |form|
         form.text_field :created_at
