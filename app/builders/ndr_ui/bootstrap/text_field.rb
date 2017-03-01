@@ -11,7 +11,8 @@ module NdrUi
         append = options.delete('append')
         input_group_opts = options.delete('input_group')
         input_group_class = input_group_opts.delete(:class) unless input_group_opts.nil?
-        input_group_opts = (input_group_opts.nil? ? {} : input_group_opts).merge(:class => 'input-group' + (input_group_class.nil? ? '' : ' ' + input_group_class))
+        input_group_opts = (input_group_opts.nil? ? {} : input_group_opts).merge(
+          class: => 'input-group' + (input_group_class.nil? ? '' : ' ' + input_group_class))
 
         if prepend.blank? && append.blank?
           super
