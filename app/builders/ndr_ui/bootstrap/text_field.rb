@@ -17,7 +17,7 @@ module NdrUi
         if prepend.blank? && append.blank?
           super
         else
-          div_content  = ''.html_safe
+          div_content = ''.html_safe
 
           unless prepend.blank?
             div_content << @template.content_tag(:span, prepend, 
