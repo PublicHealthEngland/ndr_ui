@@ -9,6 +9,9 @@ module NdrUi
         options = options.stringify_keys
         prepend = options.delete('prepend')
         append = options.delete('append')
+        input_group_opts = options.delete('input_group')
+        input_group_class = input_group_opts.delete(:class) unless input_group_opts.nil?
+        input_group_opts = (input_group_opts.nil? ? {} : input_group_opts).merge(:class => 'input-group' + (input_group_class.nil? ? '' : ' ' + input_group_class))
 
         if prepend.blank? && append.blank?
           super
@@ -25,9 +28,7 @@ module NdrUi
             div_content << @template.content_tag(:span, append, :class => 'input-group-addon').html_safe
           end
 
-          #div_content << inline_errors_and_warnings(method)
-
-          @template.content_tag(:div, div_content, :class => 'input-group')
+          @template.content_tag(:div, div_content, input_group_opts)
         end
       end
     end
