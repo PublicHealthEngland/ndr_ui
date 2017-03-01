@@ -189,6 +189,5 @@ module NdrUi
         assert_nil form.label_columns
       end
     end
-
   end
 end
