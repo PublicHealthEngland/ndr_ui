@@ -21,14 +21,14 @@ module NdrUi
 
           unless prepend.blank?
             div_content << @template.content_tag(:span, prepend, 
-              class: 'input-group-addon').html_safe
+                                                 class: 'input-group-addon').html_safe
           end
 
           div_content << text_field_without_inline_errors(method, options)
 
           unless append.blank?
             div_content << @template.content_tag(:span, append, 
-              class: 'input-group-addon').html_safe
+                                                 class: 'input-group-addon').html_safe
           end
 
           @template.content_tag(:div, div_content, input_group_opts)
