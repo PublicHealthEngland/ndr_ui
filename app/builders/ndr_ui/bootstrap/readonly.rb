@@ -54,7 +54,7 @@ module NdrUi
           # For labels, the for attribute should be removed:
           def label(method, text = nil, **options, &block)
             return super unless readonly?
-            super(object_name, method, (options || {}).merge(for: nil), &block)
+            super(object_name, method, options.merge(for: nil), &block)
           end
 
           # radio_button takes another intermediate argument:
