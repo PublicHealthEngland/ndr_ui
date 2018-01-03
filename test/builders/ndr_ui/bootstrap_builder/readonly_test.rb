@@ -102,19 +102,4 @@ class ReadonlyTest < ActionView::TestCase
     assert_select 'input[type=hidden]#post_created_at', 0
     assert_select 'p.form-control-static', 0
   end
-
-  test 'readonly label should not display for attribute' do
-    time = Time.current
-    post = Post.new(created_at: time)
-
-    bootstrap_form_for post do |form|
-      assert_dom_equal '<label for="post_created_at">Created at</label>',
-                       form.label(:created_at, 'Created at')
-    end
-
-    bootstrap_form_for post, readonly: true do |form|
-      assert_dom_equal '<label>Created at</label>',
-                       form.label(:created_at, 'Created at')
-    end
-  end
 end

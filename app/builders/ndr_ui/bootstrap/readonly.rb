@@ -9,8 +9,8 @@ module NdrUi
     module Readonly
       def self.included(base)
         # These have different signatures, or aren't affected by `readonly`:
-        not_affected = [:fields_for]
-        needs_custom = [:label, :radio_button, :file_field, :hidden_field] +
+        not_affected = [:label, :fields_for]
+        needs_custom = [:radio_button, :file_field, :hidden_field] +
                        base.field_helpers_from_form_options_helper
 
         (base.field_helpers - needs_custom - not_affected).each do |selector|
@@ -49,12 +49,6 @@ module NdrUi
             return super unless readonly?
             readonly_value = options.symbolize_keys.fetch(:readonly_value, object.send(method))
             @template.content_tag(:p, readonly_value, class: 'form-control-static')
-          end
-
-          # For labels, the for attribute should be removed:
-          def label(method, text = nil, **options, &block)
-            return super unless readonly?
-            super(object_name, method, options.merge(for: nil), &block)
           end
 
           # radio_button takes another intermediate argument:
