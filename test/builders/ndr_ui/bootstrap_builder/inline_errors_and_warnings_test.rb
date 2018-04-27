@@ -37,6 +37,33 @@ class InlineErrorsAndWarningsTest < ActionView::TestCase
     end
   end
 
+  test 'should wrap help-block when fields_for a collections' do
+    post = Post.new
+
+    form_for post do |form|
+      assert_dom_equal(
+        '<input type="text" name="post[sub_records][][created_at]" id="post_sub_records__created_at" />',
+        form.fields_for('sub_records[]', Post.new) do |sub_form|
+          sub_form.text_field(:created_at)
+        end
+      )
+    end
+
+    bootstrap_form_for post do |form|
+      assert_dom_equal(
+        '<input class="form-control" type="text" name="post[sub_records][][created_at]" id="post_sub_records__created_at" />' \
+        '<span class="help-block" data-feedback-for="post_sub_records__created_at">' \
+        '<span class="text-danger"></span>' \
+        '<span class="text-warning"></span>' \
+        '</span>',
+
+        form.fields_for('sub_records[]', Post.new) do |sub_form|
+          sub_form.text_field(:created_at)
+        end
+      )
+    end
+  end
+
   test 'should display warnings' do
     post = Post.new
     post.warnings[:created_at] << 'some' << 'message'
