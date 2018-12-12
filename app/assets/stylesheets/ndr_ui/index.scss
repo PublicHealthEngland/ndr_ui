@@ -9,3 +9,11 @@
         display: table-cell;
     }
 }
+
+// for input fields with input-addons, remove background and border when the form is readonly. 
+.input-group {
+  .form-control-static + .input-group-addon {
+    background: none;
+    border:0;
+  }
+}
