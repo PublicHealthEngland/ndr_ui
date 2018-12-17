@@ -20,7 +20,8 @@ module NdrUi
             end
 
           default_to_value = options.fetch(:default_to_value, true)
-          readonly_value = options.fetch(:readonly_value, default_to_value ? value : nil)
+          readonly_value = options.fetch(:readonly_value,
+                                         default_to_value ? object.public_send(@method_name) : nil)
           content_tag(:p, readonly_value, class: 'form-control-static', id: readwrite_id)
         end
       end
