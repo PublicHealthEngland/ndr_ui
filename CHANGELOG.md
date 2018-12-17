@@ -6,6 +6,7 @@
 ### Added
 * Added `bootstrap_icon_spinner` helper methods
 * Add `inline_controls_for` button toolbar helper (#27)
+* Added the Rails generated HTML id to readonly form input equivalents (#29)
 
 ## 1.12.2 / 2018-06-22
 ### Fixed
