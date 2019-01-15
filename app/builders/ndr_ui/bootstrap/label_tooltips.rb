@@ -46,11 +46,13 @@ module NdrUi
         scope        = 'tooltips'
         search_paths = ["#{scope}.#{attribute}"]
 
-        @object.class.lookup_ancestors.map do |ancestor|
-          search_paths.unshift("#{scope}.#{ancestor.model_name.i18n_key}.#{attribute}")
-        end
+        if @object.present?
+          @object.class.lookup_ancestors.map do |ancestor|
+            search_paths.unshift("#{scope}.#{ancestor.model_name.i18n_key}.#{attribute}")
+          end
 
-        search_paths.unshift("#{scope}.#{@object.class.model_name.i18n_key}.#{attribute}")
+          search_paths.unshift("#{scope}.#{@object.class.model_name.i18n_key}.#{attribute}")
+        end
 
         search_paths.map!(&:to_sym)
 

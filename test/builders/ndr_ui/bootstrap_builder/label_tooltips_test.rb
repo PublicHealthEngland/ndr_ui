@@ -22,6 +22,23 @@ class LabelTooltipsTest < ActionView::TestCase
     assert_select 'label[for=post_created_at]'
   end
 
+  test 'should include tooltips when translations exist - nil model object' do
+    NdrUi::BootstrapBuilder.any_instance.stubs(:display?).returns(true)
+
+    I18n.expects(:translate).
+      with(:'tooltips.bomb', raise: true, default: []).
+      returns('Dangerous')
+
+    @output_buffer =
+      form_with(url: '/', builder: NdrUi::BootstrapBuilder) do |form|
+        form.label :bomb, 'Test'
+      end
+
+    assert_select 'span.question-tooltip[title=Dangerous]'
+    assert_select 'label'
+    assert_select 'label[for=?]', /.+/, 0
+  end
+
   test 'should not include tooltips when there is no translation' do
     post = Post.new
     NdrUi::BootstrapBuilder.any_instance.stubs(:display?).returns(true)
@@ -34,6 +51,20 @@ class LabelTooltipsTest < ActionView::TestCase
 
     assert_select '.question-tooltip', 0
     assert_select 'label[for=post_created_at]'
+  end
+
+  test 'should not include tooltips when there is no translation - nil model object' do
+    NdrUi::BootstrapBuilder.any_instance.stubs(:display?).returns(true)
+
+    @output_buffer =
+      form_with(url: '/', builder: NdrUi::BootstrapBuilder) do |form|
+        form.stubs(:translate_tooltip).returns('translation missing')
+        form.label :bomb
+      end
+
+    assert_select '.question-tooltip', 0
+    assert_select 'label'
+    assert_select 'label[for=?]', /.+/, 0
   end
 
   test 'should not include tooltips when translations is a hash' do
@@ -65,6 +96,20 @@ class LabelTooltipsTest < ActionView::TestCase
 
     assert_select '.question-tooltip[title="Not the translated value"]'
     assert_select 'label[for=post_created_at]'
+  end
+
+  test 'should allow tooltip text to be set explicitly - nil model object' do
+    NdrUi::BootstrapBuilder.any_instance.stubs(:display?).returns(true)
+
+    @output_buffer =
+      form_with(url: '/', builder: NdrUi::BootstrapBuilder) do |form|
+        form.stubs(:translate_tooltip).returns('Tooltip')
+        form.label :bomb, tooltip: 'Not the translated value'
+      end
+
+    assert_select '.question-tooltip[title="Not the translated value"]'
+    assert_select 'label'
+    assert_select 'label[for=?]', /.+/, 0
   end
 
   test 'should allow tooltips to be suppressed' do
