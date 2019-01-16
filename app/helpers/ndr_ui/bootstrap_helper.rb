@@ -248,12 +248,14 @@ module NdrUi
     def bootstrap_form_with(*args, &proc)
       options = args.extract_options!
       options[:html] ||= {}
+      horizontal = options.delete(:horizontal)
 
       # :horizontal
-      if horizontal = options.delete(:horizontal)
+      if horizontal
         # set the form html class for horizontal bootstrap forms
         options[:html][:class] ||= ''
-        options[:html][:class] = (options[:html][:class].split(' ') << 'form-horizontal').uniq.join(' ')
+        classes = (options[:html][:class].split(' ') << 'form-horizontal').uniq.join(' ')
+        options[:html][:class] = classes
       end
 
       # We switch autocomplete off by default
