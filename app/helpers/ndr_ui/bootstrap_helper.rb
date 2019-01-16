@@ -243,6 +243,32 @@ module NdrUi
       end
     end
 
+    # Identical signature to form_with, but uses NdrUi::BootstrapBuilder.
+    # See ActionView::Helpers::FormHelper for details
+    def bootstrap_form_with(*args, &proc)
+      options = args.extract_options!
+      options[:html] ||= {}
+
+      # :horizontal
+      if horizontal = options.delete(:horizontal)
+        # set the form html class for horizontal bootstrap forms
+        options[:html][:class] ||= ''
+        options[:html][:class] = (options[:html][:class].split(' ') << 'form-horizontal').uniq.join(' ')
+      end
+
+      # We switch autocomplete off by default
+      raise 'autocomplete should be defined an html option' if options[:autocomplete]
+      options[:html][:autocomplete] ||= 'off'
+
+      form_with(*(args << options.merge(builder: NdrUi::BootstrapBuilder))) do |form|
+        # Put the form builder into horizontal mode (if necessary)
+        form.horizontal_mode = horizontal if horizontal
+
+        # yield to the provided form block
+        yield(form)
+      end
+    end
+
     # TODO: bootstrap_pagination_tag(*args, &block)
 
     # Creates a Boostrap control group for button.
