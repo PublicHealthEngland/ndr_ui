@@ -245,9 +245,9 @@ module NdrUi
 
     # Identical signature to form_with, but uses NdrUi::BootstrapBuilder.
     # See ActionView::Helpers::FormHelper for details
-    def bootstrap_form_with(*args, &proc)
-      options = args.extract_options!
+    def bootstrap_form_with(**options, &block)
       options[:html] ||= {}
+      options[:builder] = NdrUi::BootstrapBuilder
       horizontal = options.delete(:horizontal)
 
       # :horizontal
@@ -262,12 +262,12 @@ module NdrUi
       raise 'autocomplete should be defined an html option' if options[:autocomplete]
       options[:html][:autocomplete] ||= 'off'
 
-      form_with(*(args << options.merge(builder: NdrUi::BootstrapBuilder))) do |form|
+      form_with(**options) do |form|
         # Put the form builder into horizontal mode (if necessary)
         form.horizontal_mode = horizontal if horizontal
 
         # yield to the provided form block
-        yield(form)
+        block.call(form)
       end
     end
 

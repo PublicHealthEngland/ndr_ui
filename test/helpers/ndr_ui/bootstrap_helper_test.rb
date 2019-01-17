@@ -185,6 +185,30 @@ module NdrUi
 
     test 'bootstrap_form_with' do
       @output_buffer = bootstrap_form_with(
+        model: Post.new,
+        html: { id: 'preserve_me' }
+      ) do |form|
+        assert_kind_of BootstrapBuilder, form
+      end
+      assert_select 'form#preserve_me[autocomplete=off][action="/posts"]'
+
+      @output_buffer = bootstrap_form_with(
+        model: Post.new,
+        html: { id: 'preserve_me', class: 'form-inline' }
+      ) do |form|
+        assert_kind_of BootstrapBuilder, form
+      end
+      assert_select 'form#preserve_me.form-inline[autocomplete=off][action="/posts"]'
+
+      @output_buffer = bootstrap_form_with(
+        model: Post.new,
+        horizontal: true, html: { id: 'preserve_me' }
+      ) do |form|
+        assert_kind_of BootstrapBuilder, form
+      end
+      assert_select 'form#preserve_me.form-horizontal[autocomplete=off][action="/posts"]'
+
+      @output_buffer = bootstrap_form_with(
         url: posts_path,
         html: { id: 'preserve_me' }
       ) do |form|
@@ -210,6 +234,12 @@ module NdrUi
     end
 
     test 'bootstrap_form_with invalid autocomplete option' do
+      assert_raise RuntimeError do
+        bootstrap_form_with(model: Post.new, autocomplete: 'on') do |form|
+          assert_kind_of BootstrapBuilder, form
+        end
+      end
+
       assert_raise RuntimeError do
         bootstrap_form_with(url: posts_path, autocomplete: 'on') do |form|
           assert_kind_of BootstrapBuilder, form
