@@ -168,6 +168,24 @@ module NdrUi
       @output_buffer = bootstrap_form_for(
         :post,
         url: posts_path,
+        html: { id: 'preserve_me' }
+      ) do |form|
+        assert_kind_of BootstrapBuilder, form
+      end
+      assert_select 'form#preserve_me[data-controller=form][autocomplete=off][action="/posts"]'
+
+      @output_buffer = bootstrap_form_for(
+        :post,
+        url: posts_path,
+        html: { id: 'preserve_me', 'data-controller': 'additional' }
+      ) do |form|
+        assert_kind_of BootstrapBuilder, form
+      end
+      assert_select 'form#preserve_me[data-controller="additional form"][autocomplete=off][action="/posts"]'
+
+      @output_buffer = bootstrap_form_for(
+        :post,
+        url: posts_path,
         horizontal: true, html: { id: 'preserve_me' }
       ) do |form|
         assert_kind_of BootstrapBuilder, form
@@ -199,6 +217,22 @@ module NdrUi
         assert_kind_of BootstrapBuilder, form
       end
       assert_select 'form#preserve_me.form-inline[autocomplete=off][action="/posts"]'
+
+      @output_buffer = bootstrap_form_with(
+        model: Post.new,
+        html: { id: 'preserve_me' }
+      ) do |form|
+        assert_kind_of BootstrapBuilder, form
+      end
+      assert_select 'form#preserve_me[data-controller=form][autocomplete=off][action="/posts"]'
+
+      @output_buffer = bootstrap_form_with(
+        model: Post.new,
+        html: { id: 'preserve_me', 'data-controller': 'additional' }
+      ) do |form|
+        assert_kind_of BootstrapBuilder, form
+      end
+      assert_select 'form#preserve_me[data-controller="additional form"][autocomplete=off][action="/posts"]'
 
       @output_buffer = bootstrap_form_with(
         model: Post.new,

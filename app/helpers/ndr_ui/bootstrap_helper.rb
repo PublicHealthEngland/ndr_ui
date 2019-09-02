@@ -227,8 +227,14 @@ module NdrUi
       if horizontal = options.delete(:horizontal)
         # set the form html class for horizontal bootstrap forms
         options[:html][:class] ||= ''
-        options[:html][:class] = (options[:html][:class].split(' ') << 'form-horizontal').uniq.join(' ')
+        classes = (options[:html][:class].split(' ') << 'form-horizontal').uniq.join(' ')
+        options[:html][:class] = classes
       end
+
+      # stimuls controller, default `form_controller`
+      options[:html][:'data-controller'] ||= ''
+      controllers = (options[:html][:'data-controller'].split(' ') << 'form').uniq.join(' ')
+      options[:html][:'data-controller'] = controllers
 
       # We switch autocomplete off by default
       raise 'autocomplete should be defined an html option' if options[:autocomplete]
@@ -257,6 +263,11 @@ module NdrUi
         classes = (options[:html][:class].split(' ') << 'form-horizontal').uniq.join(' ')
         options[:html][:class] = classes
       end
+
+      # stimuls controller, default `form_controller`
+      options[:html][:'data-controller'] ||= ''
+      controllers = (options[:html][:'data-controller'].split(' ') << 'form').uniq.join(' ')
+      options[:html][:'data-controller'] = controllers
 
       # We switch autocomplete off by default
       raise 'autocomplete should be defined an html option' if options[:autocomplete]
