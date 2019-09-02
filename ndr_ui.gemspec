@@ -31,7 +31,7 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency 'rake'
   spec.add_development_dependency 'pry'
-  spec.add_development_dependency 'ndr_dev_support', '~> 3.1', '>= 3.1.3'
+  spec.add_development_dependency 'ndr_dev_support', '>= 5.4.5'
   spec.add_development_dependency 'simplecov'
   spec.add_development_dependency 'mocha', '~> 1.1.0'
 end

@@ -3,4 +3,4 @@ inherit_from: 'https://raw.githubusercontent.com/PublicHealthEngland/ndr_dev_sup
 AllCops:
   Exclude:
     - test/dummy/db/schema.rb
-  TargetRubyVersion: 2.3
+  TargetRubyVersion: 2.5 # minimum we support
