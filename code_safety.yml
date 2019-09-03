@@ -10,8 +10,8 @@ file safety:
     safe_revision: d6e8188189748f534ca47fe03e0d0e044c4e51d4
   ".rubocop.yml":
     comments: 
-    reviewed_by: timgentry
-    safe_revision: f3c5c6f302db46f6f2dcf992698c41190f09c07f
+    reviewed_by: josh.pencheon
+    safe_revision: 8fe91ef605ea985db023c3a048f15d1321dc0cd6
   ".travis.yml":
     comments: 
     reviewed_by: josh.pencheon
@@ -19,7 +19,7 @@ file safety:
   CHANGELOG.md:
     comments: 
     reviewed_by: josh.pencheon
-    safe_revision: a2bc15d8f3972aed641ff9c2b51b50bb71896f90
+    safe_revision: dfc28a929c309d9bbe54a490954957fd5a525f52
   CODE_OF_CONDUCT.md:
     comments: 
     reviewed_by: timgentry
@@ -143,7 +143,7 @@ file safety:
   app/helpers/ndr_ui/bootstrap_helper.rb:
     comments: 
     reviewed_by: josh.pencheon
-    safe_revision: f5c1bbbe3c3d1cc3d148c00b96d659280186c9ce
+    safe_revision: 0dc4a80321a7cc31e56e74a94d73c575162461ec
   app/helpers/ndr_ui/css_helper.rb:
     comments: 
     reviewed_by: timgentry
@@ -199,7 +199,7 @@ file safety:
   lib/ndr_ui/version.rb:
     comments: 
     reviewed_by: josh.pencheon
-    safe_revision: a2bc15d8f3972aed641ff9c2b51b50bb71896f90
+    safe_revision: dfc28a929c309d9bbe54a490954957fd5a525f52
   lib/tasks/ndr_ui_tasks.rake:
     comments: 
     reviewed_by: timgentry
@@ -215,7 +215,7 @@ file safety:
   ndr_ui.gemspec:
     comments: 
     reviewed_by: josh.pencheon
-    safe_revision: 685c8b688df65a0b3359825d9e911cded8f9e323
+    safe_revision: 6d3024f337a1bd37c04a5478153f7d843a1bcb8a
   test/builders/ndr_ui/bootstrap_builder/datepicker_test.rb:
     comments: 
     reviewed_by: josh.pencheon
@@ -443,7 +443,7 @@ file safety:
   test/helpers/ndr_ui/bootstrap_helper_test.rb:
     comments: 
     reviewed_by: josh.pencheon
-    safe_revision: f5c1bbbe3c3d1cc3d148c00b96d659280186c9ce
+    safe_revision: 0dc4a80321a7cc31e56e74a94d73c575162461ec
   test/helpers/ndr_ui/css_helper_test.rb:
     comments: 
     reviewed_by: timgentry
