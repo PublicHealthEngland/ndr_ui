@@ -1,5 +1,5 @@
 ## [Unreleased]
-*no unreleased changes*
+* enable `data-controller` options to bootstrap form helpers
 
 ## 2.2.0 / 2019-07-08
 ### Added
