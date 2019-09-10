@@ -1,5 +1,6 @@
 ## [Unreleased]
-*no unreleased changes*
+### Changed
+* Changes to how the engine exposes assets, for use outside of manifests
 
 ## 2.3.0 / 2019-09-03
 ### Added
