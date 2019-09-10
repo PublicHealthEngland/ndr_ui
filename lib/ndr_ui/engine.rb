@@ -6,7 +6,13 @@ module NdrUi
   class Engine < ::Rails::Engine
     isolate_namespace NdrUi
 
-    config.assets.paths << File.expand_path('../../../vendor/assets', __FILE__)
+    # Hook into host app's asset pipeline, allowing all the gem's assets
+    # to be complied alongside. This allows the gem's assets to be referenced
+    # directly by templates without issue, rather than needing to go via
+    # an asset manifest in the host.
+    initializer 'ndr_ui.assets.precompile' do |app|
+      app.config.assets.precompile += %w(*.scss *.js *.gif)
+    end
 
     # We configure the generator of the host app
     config.app_generators do |g|
