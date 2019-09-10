@@ -19,7 +19,7 @@ file safety:
   CHANGELOG.md:
     comments: 
     reviewed_by: josh.pencheon
-    safe_revision: dfc28a929c309d9bbe54a490954957fd5a525f52
+    safe_revision: 3efa8eb5bf47959bce84a273edb978f96abcc318
   CODE_OF_CONDUCT.md:
     comments: 
     reviewed_by: timgentry
@@ -58,16 +58,16 @@ file safety:
     safe_revision: bad42dce29e241c5138cf113f9bce4fba59adb3d
   app/assets/javascripts/ndr_ui/datepicker.js:
     comments: 
-    reviewed_by: timgentry
-    safe_revision: 5671f6499645ce53272d1466c623f4af4c1a2f74
+    reviewed_by: josh.pencheon
+    safe_revision: 125f4cf38f0cb52eb698c075343104ebdf363701
   app/assets/javascripts/ndr_ui/index.js:
     comments: 
     reviewed_by: timgentry
     safe_revision: 4a4c8dbfdd6086eccff567b0443b5ec95dcd8d87
   app/assets/javascripts/ndr_ui/timeago.js:
     comments: 
-    reviewed_by: timgentry
-    safe_revision: 8fc8cba7c021f08cd8fc8df19b861c6cef0a51ab
+    reviewed_by: josh.pencheon
+    safe_revision: 125f4cf38f0cb52eb698c075343104ebdf363701
   app/assets/stylesheets/ndr_ui/.keep:
     comments: 
     reviewed_by: timgentry
@@ -75,7 +75,7 @@ file safety:
   app/assets/stylesheets/ndr_ui/datepicker.scss:
     comments: 
     reviewed_by: josh.pencheon
-    safe_revision: f30457db582abc8abb07d2acb3fc44bee4dffac2
+    safe_revision: 125f4cf38f0cb52eb698c075343104ebdf363701
   app/assets/stylesheets/ndr_ui/index.scss:
     comments: 
     reviewed_by: josh.pencheon
@@ -190,8 +190,8 @@ file safety:
     safe_revision: c4191098f1ff7f0a5441839fef5ab9a04441b8db
   lib/ndr_ui/engine.rb:
     comments: 
-    reviewed_by: timgentry
-    safe_revision: fa1b0ea70f3012aadbb838bc28dee5fd75b40d01
+    reviewed_by: josh.pencheon
+    safe_revision: 125f4cf38f0cb52eb698c075343104ebdf363701
   lib/ndr_ui/locale/en.yml:
     comments: 
     reviewed_by: josh.pencheon
@@ -199,7 +199,7 @@ file safety:
   lib/ndr_ui/version.rb:
     comments: 
     reviewed_by: josh.pencheon
-    safe_revision: dfc28a929c309d9bbe54a490954957fd5a525f52
+    safe_revision: 3efa8eb5bf47959bce84a273edb978f96abcc318
   lib/tasks/ndr_ui_tasks.rake:
     comments: 
     reviewed_by: timgentry
@@ -804,10 +804,10 @@ file safety:
     comments: 
     reviewed_by: timgentry
     safe_revision: d653496c9519ab0b65bfb2afc832f49d734918da
-  vendor/assets/bootstrap-datepicker.scss:
-    comments: making symlink explicitly relative for RubyGems re-packaging
+  vendor/assets/datepicker-scss-fix/bootstrap-datepicker-scss-fix.scss:
+    comments: 
     reviewed_by: josh.pencheon
-    safe_revision: bcdee0f1c0dbbad38c95ac7f23dc110a068d0345
+    safe_revision: 125f4cf38f0cb52eb698c075343104ebdf363701
   vendor/assets/jquery-timeago-1.5.3/jquery.timeago.js:
     comments: 
     reviewed_by: timgentry
