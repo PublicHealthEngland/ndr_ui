@@ -445,6 +445,36 @@ module NdrUi
       content_tag(:div, capture(&block), class: 'btn-group')
     end
 
+    # Creates a Boostrap 'New' link.
+    #
+    # ==== Signatures
+    #
+    #   new_link(path, options = {})
+    #
+    # ==== Examples
+    #
+    #   <%= new_link('#') %>
+    #   # => <a title="New" class="btn btn-primary btn-xs" href="#">
+    #          <span class="glyphicon glyphicon-plus-sign"></span>
+    #        </a>
+    #
+    #   <%= new_link(Post.new) %>
+    #   # => <a title="New" class="btn btn-primary btn-xs" href="/posts/new">
+    #          <span class="glyphicon glyphicon-plus-sign"></span>
+    #        </a>
+    #
+    def new_link(path, options = {})
+      return unless options.delete(:skip_authorization) || ndr_can?(:new, path)
+
+      path = new_polymorphic_path(path) if can_generate_polymorphic_path?(path)
+
+      defaults = {
+        icon: 'plus-sign', title: 'New', path: path, class: 'btn btn-primary btn-xs'
+      }
+
+      link_to_with_icon(defaults.merge(options))
+    end
+
     # Creates a Boostrap 'Details' link.
     #
     # ==== Signatures
@@ -573,6 +603,13 @@ module NdrUi
       end
 
       can?(action, subject, *extra_args)
+    end
+
+    def can_generate_polymorphic_path?(path)
+      case path
+      when Array, ActiveRecord::Base then true
+      else false
+      end
     end
   end
 end

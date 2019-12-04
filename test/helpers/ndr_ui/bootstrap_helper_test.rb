@@ -366,6 +366,42 @@ module NdrUi
       assert_dom_equal expected, actual
     end
 
+    test 'bootstrap_new_link with path' do
+      actual   = new_link('/posts/new')
+      expected = '<a title="New" class="btn btn-primary btn-xs" href="/posts/new">' \
+                 '<span class="glyphicon glyphicon-plus-sign"></span></a>'
+
+      assert_dom_equal format(expected), actual
+    end
+
+    test 'bootstrap_new_link with resource' do
+      actual   = new_link(Post.new)
+      expected = '<a title="New" class="btn btn-primary btn-xs" href="/posts/new">' \
+                 '<span class="glyphicon glyphicon-plus-sign"></span></a>'
+
+      assert_dom_equal format(expected), actual
+    end
+
+    test 'bootstrap_new_link with nested resource' do
+      post = Post.create!
+
+      actual   = new_link([post, Comment.new])
+      expected = '<a title="New" class="btn btn-primary btn-xs" href="/posts/%<id>d/comments/new">' \
+                 '<span class="glyphicon glyphicon-plus-sign"></span></a>'
+
+      assert_dom_equal format(expected, id: post.id), actual
+    end
+
+    test 'bootstrap_new_link with forbidden resource' do
+      post = Post.new
+      stubs(:can?).with(:new, post).returns(false)
+
+      assert_nil new_link(post)
+      link = new_link(post, skip_authorization: true)
+      refute_nil link
+      refute_match(/authorization/, link)
+    end
+
     test 'bootstrap_details_link' do
       actual   = details_link('#')
       expected = '<a title="Details" class="btn btn-default btn-xs" href="#">' \
@@ -381,6 +417,17 @@ module NdrUi
                  '<span class="glyphicon glyphicon-share-alt"></span></a>'
 
       assert_dom_equal format(expected, id: post.id), actual
+    end
+
+    test 'bootstrap_details_link with nested resource' do
+      post     = Post.create!
+      comment  = post.comments.create!
+      actual   = details_link([post, comment])
+      expected = '<a title="Details" class="btn btn-default btn-xs"' \
+                 ' href="/posts/%<post_id>d/comments/%<id>d">' \
+                 '<span class="glyphicon glyphicon-share-alt"></span></a>'
+
+      assert_dom_equal format(expected, post_id: post.id, id: comment.id), actual
     end
 
     test 'bootstrap_details_link with forbidden resource' do

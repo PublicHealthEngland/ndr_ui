@@ -1,4 +1,6 @@
 class Post < ActiveRecord::Base
+  has_many :comments
+
   def warnings
     @warnings ||= ActiveModel::Errors.new(self)
   end
