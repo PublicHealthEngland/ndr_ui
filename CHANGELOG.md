@@ -1,6 +1,9 @@
 ## [Unreleased]
+*no unreleased changes*
+
+## 3.1.0 / 2019-12-04
 ### Added
-* Add `new_link` bootstrap helper
+* Add `new_link` bootstrap helper (#36)
 * Support nested polymorphic resources for bootstrap link helpers
 
 ### Fixed
