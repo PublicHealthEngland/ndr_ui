@@ -459,7 +459,7 @@ module NdrUi
     #        </a>
     #
     def details_link(path, options = {})
-      return unless options[:skip_authorization] || ndr_can?(:read, path)
+      return unless options.delete(:skip_authorization) || ndr_can?(:read, path)
 
       link_to_with_icon({ icon: 'share-alt', title: 'Details', path: path }.merge(options))
     end
@@ -478,7 +478,7 @@ module NdrUi
     #        </a>
     #
     def edit_link(path, options = {})
-      return unless options[:skip_authorization] || ndr_can?(:edit, path)
+      return unless options.delete(:skip_authorization) || ndr_can?(:edit, path)
 
       path = edit_polymorphic_path(path) if path.is_a?(ActiveRecord::Base)
 
@@ -499,7 +499,7 @@ module NdrUi
     #          <span class="glyphicon glyphicon-trash icon-white"></span>
     #        </a>'
     def delete_link(path, options = {})
-      return unless options[:skip_authorization] || ndr_can?(:delete, path)
+      return unless options.delete(:skip_authorization) || ndr_can?(:delete, path)
 
       defaults = {
         icon: 'trash icon-white', title: 'Delete', path: path,

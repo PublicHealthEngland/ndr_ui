@@ -388,7 +388,9 @@ module NdrUi
       stubs(:can?).with(:read, post).returns(false)
 
       assert_nil details_link(post)
-      refute_nil details_link(post, skip_authorization: true)
+      link = details_link(post, skip_authorization: true)
+      refute_nil link
+      refute_match(/authorization/, link)
     end
 
     test 'bootstrap_edit_link' do
@@ -411,7 +413,9 @@ module NdrUi
       stubs(:can?).with(:edit, post).returns(false)
 
       assert_nil edit_link(post)
-      refute_nil edit_link(post, skip_authorization: true)
+      link = edit_link(post, skip_authorization: true)
+      refute_nil link
+      refute_match(/authorization/, link)
     end
 
     test 'bootstrap_delete_link' do
@@ -437,7 +441,9 @@ module NdrUi
       stubs(:can?).with(:delete, post).returns(false)
 
       assert_nil delete_link(post)
-      refute_nil delete_link(post, skip_authorization: true)
+      link = delete_link(post, skip_authorization: true)
+      refute_nil link
+      refute_match(/authorization/, link)
     end
 
     test 'non authorisable link with non-resource is not deprecated' do
