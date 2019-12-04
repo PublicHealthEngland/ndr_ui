@@ -1,5 +1,10 @@
 ## [Unreleased]
-*no unreleased changes*
+### Added
+* Add `new_link` bootstrap helper
+* Support nested polymorphic resources for bootstrap link helpers
+
+### Fixed
+* Don't leak `skip_authorization` as an HTML attribute (#37)
 
 ## 3.0.0 / 2019-09-10
 ### Changed
