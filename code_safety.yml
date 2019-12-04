@@ -19,7 +19,7 @@ file safety:
   CHANGELOG.md:
     comments: 
     reviewed_by: josh.pencheon
-    safe_revision: 3efa8eb5bf47959bce84a273edb978f96abcc318
+    safe_revision: 8260d0265d178e41177c4ac58da2b61fc13824e9
   CODE_OF_CONDUCT.md:
     comments: 
     reviewed_by: timgentry
@@ -143,7 +143,7 @@ file safety:
   app/helpers/ndr_ui/bootstrap_helper.rb:
     comments: 
     reviewed_by: josh.pencheon
-    safe_revision: 0dc4a80321a7cc31e56e74a94d73c575162461ec
+    safe_revision: 6ea4b27ed8e3bc5f671f1858c7ecbd10d9a19d04
   app/helpers/ndr_ui/css_helper.rb:
     comments: 
     reviewed_by: timgentry
@@ -174,8 +174,8 @@ file safety:
     safe_revision: 3114ac4f6660e540f28bd3e64f9ecc6a6635d4cb
   config/routes.rb:
     comments: 
-    reviewed_by: timgentry
-    safe_revision: bad42dce29e241c5138cf113f9bce4fba59adb3d
+    reviewed_by: josh.pencheon
+    safe_revision: 6ea4b27ed8e3bc5f671f1858c7ecbd10d9a19d04
   gemfiles/Gemfile.rails52:
     comments: 
     reviewed_by: josh.pencheon
@@ -199,7 +199,7 @@ file safety:
   lib/ndr_ui/version.rb:
     comments: 
     reviewed_by: josh.pencheon
-    safe_revision: 3efa8eb5bf47959bce84a273edb978f96abcc318
+    safe_revision: 8260d0265d178e41177c4ac58da2b61fc13824e9
   lib/tasks/ndr_ui_tasks.rake:
     comments: 
     reviewed_by: timgentry
@@ -292,6 +292,10 @@ file safety:
     comments: 
     reviewed_by: timgentry
     safe_revision: bad42dce29e241c5138cf113f9bce4fba59adb3d
+  test/dummy/app/models/comment.rb:
+    comments: 
+    reviewed_by: josh.pencheon
+    safe_revision: 6ea4b27ed8e3bc5f671f1858c7ecbd10d9a19d04
   test/dummy/app/models/concerns/.keep:
     comments: 
     reviewed_by: timgentry
@@ -299,7 +303,7 @@ file safety:
   test/dummy/app/models/post.rb:
     comments: 
     reviewed_by: josh.pencheon
-    safe_revision: c0ceb936270b8c621c7b2951c7d106d58e76c246
+    safe_revision: 6ea4b27ed8e3bc5f671f1858c7ecbd10d9a19d04
   test/dummy/app/views/layouts/application.html.erb:
     comments: 
     reviewed_by: timgentry
@@ -394,12 +398,16 @@ file safety:
     safe_revision: bad42dce29e241c5138cf113f9bce4fba59adb3d
   test/dummy/db/migrate/20160223091350_create_posts.rb:
     comments: 
-    reviewed_by: timgentry
-    safe_revision: d9f0742cca432bde7e6e2bbeed021b70656a1197
+    reviewed_by: josh.pencheon
+    safe_revision: 6ea4b27ed8e3bc5f671f1858c7ecbd10d9a19d04
+  test/dummy/db/migrate/20191204153504_create_comments.rb:
+    comments: 
+    reviewed_by: josh.pencheon
+    safe_revision: 6ea4b27ed8e3bc5f671f1858c7ecbd10d9a19d04
   test/dummy/db/schema.rb:
     comments: 
-    reviewed_by: timgentry
-    safe_revision: d9f0742cca432bde7e6e2bbeed021b70656a1197
+    reviewed_by: josh.pencheon
+    safe_revision: 6ea4b27ed8e3bc5f671f1858c7ecbd10d9a19d04
   test/dummy/lib/assets/.keep:
     comments: 
     reviewed_by: timgentry
@@ -443,7 +451,7 @@ file safety:
   test/helpers/ndr_ui/bootstrap_helper_test.rb:
     comments: 
     reviewed_by: josh.pencheon
-    safe_revision: 0dc4a80321a7cc31e56e74a94d73c575162461ec
+    safe_revision: 6ea4b27ed8e3bc5f671f1858c7ecbd10d9a19d04
   test/helpers/ndr_ui/css_helper_test.rb:
     comments: 
     reviewed_by: timgentry
