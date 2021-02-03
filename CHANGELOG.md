@@ -1,5 +1,6 @@
 ## [Unreleased]
-*no unreleased changes*
+### Fixed
+* Don't mutate arguments when merging CSS options
 
 ## 3.1.0 / 2019-12-04
 ### Added
