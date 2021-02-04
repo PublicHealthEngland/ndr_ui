@@ -1,6 +1,7 @@
 ## [Unreleased]
 ### Fixed
 * Don't mutate arguments when merging CSS options
+* Support Ruby 2.7 and 3.0.
 
 ### Changed
 * Remove dependency on unsupported sass gem

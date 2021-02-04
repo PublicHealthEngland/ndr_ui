@@ -24,7 +24,7 @@ end
 # Include all capybara + poltergeist config
 require 'ndr_dev_support/integration_testing'
 
-Capybara.server = :webrick
+Capybara.server = :puma, { Silent: true }
 
 module ActiveSupport
   class TestCase
