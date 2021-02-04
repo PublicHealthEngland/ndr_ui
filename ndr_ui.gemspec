@@ -35,4 +35,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'ndr_dev_support', '>= 5.4.5'
   spec.add_development_dependency 'simplecov'
   spec.add_development_dependency 'mocha', '~> 1.1.0'
+  spec.add_development_dependency 'puma'
 end

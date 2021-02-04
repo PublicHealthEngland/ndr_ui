@@ -13,7 +13,17 @@ module NdrUi
       # See the source code for ActionView::Helpers::Tags::Label for more.
       #
       # QUESTION: Parameterise the tooltip so we're not just bound to a question_tooltip ?
-      def label(method, text = nil, **options, &block)
+      def label(method, content_or_options = nil, options = nil, &block)
+        options ||= {}
+
+        content_is_options = content_or_options.is_a?(Hash)
+        if content_is_options
+          options.merge! content_or_options
+          text = nil
+        else
+          text = content_or_options
+        end
+
         tooltip_text = options.delete(:tooltip)
 
         super(method, text, options) do |builder|
