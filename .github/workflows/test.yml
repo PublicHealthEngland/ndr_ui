@@ -11,11 +11,10 @@ jobs:
           - 2.7
           - 3.0
         gemfile:
-          - gemfiles/Gemfile.rails52
           - gemfiles/Gemfile.rails60
-        exclude:
-          # excludes Rails 5.2 with Ruby 3 for now...
-        - ruby-version: 3.0
+        include:
+          # Continue testing Rails 5.2 against Ruby 2.6 for now...
+        - ruby-version: 2.6
           gemfile: gemfiles/Gemfile.rails52
 
 
