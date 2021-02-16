@@ -13,6 +13,11 @@ jobs:
         gemfile:
           - gemfiles/Gemfile.rails52
           - gemfiles/Gemfile.rails60
+        exclude:
+          # excludes Rails 5.2 with Ruby 3 for now...
+        - ruby-version: 3.0
+          gemfile: gemfiles/Gemfile.rails52
+
 
     name: Ruby ${{ matrix.ruby-version }} / Bundle ${{ matrix.gemfile }}
 
