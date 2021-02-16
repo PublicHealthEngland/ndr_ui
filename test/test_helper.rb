@@ -22,6 +22,7 @@ if ActiveSupport::TestCase.respond_to?(:fixture_path=)
 end
 
 # Include all capybara + poltergeist config
+ENV['INTEGRATION_DRIVER'] ||= 'chrome_headless'
 require 'ndr_dev_support/integration_testing'
 
 Capybara.server = :puma, { Silent: true }

@@ -20,7 +20,7 @@ Gem::Specification.new do |spec|
 
   spec.files = Dir['{app,config,lib,vendor}/**/*', 'LICENSE.txt', 'Rakefile', 'README.md'] - ['.travis.yml']
 
-  spec.required_ruby_version = '>= 2.4.0'
+  spec.required_ruby_version = '>= 2.6.0'
 
   spec.add_dependency 'rails', '>= 5.1', '< 7.0'
   # spec.add_dependency 'sass' # Until using sprockets 4, which supports sassc properly...
@@ -32,7 +32,7 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency 'rake'
   spec.add_development_dependency 'pry'
-  spec.add_development_dependency 'ndr_dev_support', '>= 5.4.5'
+  spec.add_development_dependency 'ndr_dev_support', '>= 5.10.2'
   spec.add_development_dependency 'simplecov'
   spec.add_development_dependency 'mocha', '~> 1.1.0'
   spec.add_development_dependency 'puma'

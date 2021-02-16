@@ -1,4 +1,4 @@
-# NdrUi [![Build Status](https://travis-ci.org/PublicHealthEngland/ndr_ui.svg)](https://travis-ci.org/PublicHealthEngland/ndr_ui) [![Gem Version](https://badge.fury.io/rb/ndr_ui.svg)](https://badge.fury.io/rb/ndr_ui) [![Documentation](https://img.shields.io/badge/ndr_ui-docs-blue.svg)](https://www.rubydoc.info/gems/ndr_ui)
+# NdrUi [![Build Status](https://github.com/publichealthengland/ndr_ui/workflows/Test/badge.svg)](https://github.com/publichealthengland/ndr_ui/actions?query=workflow%3Atest) [![Gem Version](https://badge.fury.io/rb/ndr_ui.svg)](https://rubygems.org/gems/ndr_ui) [![Documentation](https://img.shields.io/badge/ndr_ui-docs-blue.svg)](https://www.rubydoc.info/gems/ndr_ui)
 
 This is the Public Health England (PHE) National Disease Registration (NDR) User Interface rubygem,
 providing a set of core features:
