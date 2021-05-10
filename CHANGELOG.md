@@ -1,4 +1,7 @@
 ## [Unreleased]
+*no unreleased changes*
+
+## 3.2.0 / 2021-05-10
 ### Fixed
 * Don't mutate arguments when merging CSS options
 * Support Ruby 2.7 and 3.0.
