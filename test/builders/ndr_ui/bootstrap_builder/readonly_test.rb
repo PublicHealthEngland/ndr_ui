@@ -68,7 +68,7 @@ class ReadonlyTest < ActionView::TestCase
         form.text_field :created_at
       end
     assert_select 'input[type=text]#post_created_at', 0
-    assert_select 'p.form-control-static', text: time.to_s
+    assert_select 'p.form-control-static#post_created_at', text: time.to_s
   end
 
   test 'readonly fields should show custom value if given' do
@@ -80,7 +80,28 @@ class ReadonlyTest < ActionView::TestCase
         form.text_field :created_at, readonly_value: text
       end
     assert_select 'input[type=text]#post_created_at', 0
-    assert_select 'p.form-control-static', text: text.to_s
+    assert_select 'p.form-control-static#post_created_at', text: text.to_s
+  end
+
+  test 'readonly file_field should not show value' do
+    post = Post.new(created_at: Time.current)
+    text = 'nothing here'
+
+    @output_buffer =
+      bootstrap_form_for post, readonly: true do |form|
+        form.file_field :created_at, readonly_value: text
+      end
+
+    assert_select 'input[type=file]#post_created_at', 0
+    assert_select 'p.form-control-static#post_created_at', text: text.to_s
+
+    @output_buffer =
+      bootstrap_form_for post, readonly: true do |form|
+        form.file_field :created_at
+      end
+
+    assert_select 'input[type=file]#post_created_at', 0
+    assert_select 'p.form-control-static#post_created_at', text: ''
   end
 
   test 'hidden fields should not display in readonly' do

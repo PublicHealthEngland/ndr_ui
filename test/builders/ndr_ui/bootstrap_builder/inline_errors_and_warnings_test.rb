@@ -102,7 +102,7 @@ class InlineErrorsAndWarningsTest < ActionView::TestCase
     bootstrap_form_for post, readonly: true do |form|
       assert form.readonly?
       assert_dom_equal(
-        '<p class="form-control-static">2001-02-03 00:00:00 UTC</p>' \
+        '<p class="form-control-static" id="post_created_at">2001-02-03 00:00:00 UTC</p>' \
         '<span class="help-block" data-feedback-for="post_created_at">' \
         '<span class="text-danger">wrong</span><span class="text-warning"></span>' \
         '</span>',

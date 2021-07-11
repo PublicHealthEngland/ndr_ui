@@ -72,13 +72,12 @@ class DatepickerTest < ActionView::TestCase
     bootstrap_form_for post, readonly: true do |form|
       assert form.readonly?
       assert_dom_equal(
-      '<p class="form-control-static">2001-02-03</p>' \
-      '<span class="help-block" data-feedback-for="post_created_at">' \
-      '<span class="text-danger">not<br>great</span><span class="text-warning"></span>' \
-      '</span>',
+        '<p class="form-control-static" id="post_created_at">2001-02-03</p>' \
+        '<span class="help-block" data-feedback-for="post_created_at">' \
+        '<span class="text-danger">not<br>great</span><span class="text-warning"></span>' \
+        '</span>',
         form.datepicker_field(:created_at)
       )
     end
   end
-
 end

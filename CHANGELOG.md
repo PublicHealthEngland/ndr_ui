@@ -55,6 +55,7 @@
 * `form_with` can use `NdrUi::BootstrapBuilder` as builder, also added `bootstrap_form_with` helper method as shortcut (#32)
 * Added `bootstrap_icon_spinner` helper methods
 * Add `inline_controls_for` button toolbar helper (#27)
+* Added the Rails generated HTML id to readonly form input equivalents (#29)
 
 ### Fixed
 * Support Ruby 2.6. Ruby 2.4 / Rails 5.1 is now the minimum requirement.
